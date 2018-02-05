@@ -1,0 +1,44 @@
+
+<div *ngIf="filial">
+    <h2><span jhiTranslate="churchControlApp.filial.detail.title">Filial</span> {{filial.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="churchControlApp.filial.razaoSocial">Razao Social</span></dt>
+        <dd>
+            <span>{{filial.razaoSocial}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.filial.cnpj">Cnpj</span></dt>
+        <dd>
+            <span>{{filial.cnpj}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.filial.tipo">Tipo</span></dt>
+        <dd>
+            <span>{{filial.tipo}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.filial.telefone">Telefone</span></dt>
+        <dd>
+            <span>{{filial.telefone}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.filial.endereco">Endereco</span></dt>
+        <dd>
+            <div *ngIf="filial.endereco">
+                <a [routerLink]="['/endereco-church', filial.endereco?.id]">{{filial.endereco?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'filial-church/'+ filial.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

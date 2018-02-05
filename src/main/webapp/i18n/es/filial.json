@@ -1,0 +1,25 @@
+{
+    "churchControlApp": {
+        "filial" : {
+            "home": {
+                "title": "Filials",
+                "createLabel": "Crear nuevo Filial",
+                "createOrEditLabel": "Crear o editar Filial"
+            },
+            "created": "Un nuevo Filial ha sido creado con el identificador {{ param }}",
+            "updated": "Un Filial ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Filial ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Filial {{ id }}?"
+            },
+            "detail": {
+                "title": "Filial"
+            },
+            "razaoSocial": "Razao Social",
+            "cnpj": "Cnpj",
+            "tipo": "Tipo",
+            "telefone": "Telefone",
+            "endereco": "Endereco"
+        }
+    }
+}

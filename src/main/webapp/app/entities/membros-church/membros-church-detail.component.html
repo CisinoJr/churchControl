@@ -1,0 +1,48 @@
+
+<div *ngIf="membros">
+    <h2><span jhiTranslate="churchControlApp.membros.detail.title">Membros</span> {{membros.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="churchControlApp.membros.nome">Nome</span></dt>
+        <dd>
+            <span>{{membros.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.membros.telefone">Telefone</span></dt>
+        <dd>
+            <span>{{membros.telefone}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.membros.celular">Celular</span></dt>
+        <dd>
+            <span>{{membros.celular}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.membros.email">Email</span></dt>
+        <dd>
+            <span>{{membros.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.membros.dataNascimento">Data Nascimento</span></dt>
+        <dd>
+            <span>{{membros.dataNascimento | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="churchControlApp.membros.endereco">Endereco</span></dt>
+        <dd>
+            <div *ngIf="membros.endereco">
+                <a [routerLink]="['/endereco-church', membros.endereco?.id]">{{membros.endereco?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'membros-church/'+ membros.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

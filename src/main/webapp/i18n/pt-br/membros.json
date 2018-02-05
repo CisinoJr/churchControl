@@ -1,0 +1,26 @@
+{
+    "churchControlApp": {
+        "membros" : {
+            "home": {
+                "title": "Membros",
+                "createLabel": "Criar novo Membros",
+                "createOrEditLabel": "Criar ou editar Membros"
+            },
+            "created": "Um novo Membros foi criado com o identificador {{ param }}",
+            "updated": "Um Membros foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Membros foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Membros {{ id }}?"
+            },
+            "detail": {
+                "title": "Membros"
+            },
+            "nome": "Nome",
+            "telefone": "Telefone",
+            "celular": "Celular",
+            "email": "Email",
+            "dataNascimento": "Data Nascimento",
+            "endereco": "Endereco"
+        }
+    }
+}

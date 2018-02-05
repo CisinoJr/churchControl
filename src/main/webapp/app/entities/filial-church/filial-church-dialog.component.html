@@ -1,0 +1,70 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myFilialLabel" jhiTranslate="churchControlApp.filial.home.createOrEditLabel">Create or edit a Filial</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!filial.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="filial.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="churchControlApp.filial.razaoSocial" for="field_razaoSocial">Razao Social</label>
+            <input type="text" class="form-control" name="razaoSocial" id="field_razaoSocial"
+                [(ngModel)]="filial.razaoSocial" required/>
+            <div [hidden]="!(editForm.controls.razaoSocial?.dirty && editForm.controls.razaoSocial?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.razaoSocial?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="churchControlApp.filial.cnpj" for="field_cnpj">Cnpj</label>
+            <input type="text" class="form-control" name="cnpj" id="field_cnpj"
+                [(ngModel)]="filial.cnpj" required/>
+            <div [hidden]="!(editForm.controls.cnpj?.dirty && editForm.controls.cnpj?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cnpj?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="churchControlApp.filial.tipo" for="field_tipo">Tipo</label>
+            <input type="text" class="form-control" name="tipo" id="field_tipo"
+                [(ngModel)]="filial.tipo" required/>
+            <div [hidden]="!(editForm.controls.tipo?.dirty && editForm.controls.tipo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.tipo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="churchControlApp.filial.telefone" for="field_telefone">Telefone</label>
+            <input type="text" class="form-control" name="telefone" id="field_telefone"
+                [(ngModel)]="filial.telefone" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="churchControlApp.filial.endereco" for="field_endereco">Endereco</label>
+            <select class="form-control" id="field_endereco" name="endereco" [(ngModel)]="filial.endereco" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="enderecoOption.id === filial.endereco?.id ? filial.endereco : enderecoOption" *ngFor="let enderecoOption of enderecos; trackBy: trackEnderecoById">{{enderecoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
