@@ -1,0 +1,14 @@
+version: '2'
+services:
+    churchcontrol-app:
+        image: churchcontrol
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://churchcontrol-postgresql:5432/churchControl
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    churchcontrol-postgresql:
+        extends:
+            file: postgresql.yml
+            service: churchcontrol-postgresql

@@ -1,0 +1,11 @@
+version: '2'
+services:
+    churchcontrol-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/churchControl/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=churchControl
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
